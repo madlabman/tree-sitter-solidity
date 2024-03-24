@@ -84,13 +84,13 @@ If statement
 contract Example {
     function example() {
         if (a) {
-            
-        } 
+
+        }
         if (d) {} else {
-            b; 
+            b;
         }
         if (a) 1;
-        
+
         if (input >= 1) if (input > 2) 1; else 2;
     }
 }
@@ -344,3 +344,24 @@ contract Example {
         (function_body
           (emit_statement
             (identifier)))))))
+
+================================================================================
+unchecked statement
+================================================================================
+
+contract Example {
+    function example() {
+        unchecked { }
+    }
+}
+--------------------------------------------------------------------------------
+
+(source_file
+  (contract_declaration
+    (identifier)
+    (contract_body
+      (function_definition
+        (identifier)
+        (function_body
+          (block_statement
+            (unchecked)))))))

@@ -11,10 +11,10 @@ contract Example {
 (source_file
   (contract_declaration
     name: (identifier)
-    body: (contract_body 
-        (using_directive 
-          (type_alias (identifier) (identifier)) 
-          source: (any_source_type))))) 
+    body: (contract_body
+        (using_directive
+          (type_alias (identifier) (identifier))
+          source: (any_source_type)))))
 ====================
 Using directive
 ====================
@@ -28,7 +28,106 @@ contract Example {
 (source_file
   (contract_declaration
     name: (identifier)
-    body: (contract_body 
-      (using_directive 
+    body: (contract_body
+      (using_directive
         (type_alias (identifier) (identifier))
         source: (type_name (primitive_type))))))
+
+===========================
+Using directive with a list
+===========================
+
+contract Example {
+    using { fun } for *;
+}
+
+---
+
+(source_file
+  (contract_declaration
+    name: (identifier)
+    body: (contract_body
+        (using_directive
+          (type_alias
+            (identifier))
+          source: (any_source_type)))))
+
+===========================
+Using directive with a list
+===========================
+
+contract Example {
+    using { fun } for uint256;
+}
+
+---
+
+(source_file
+  (contract_declaration
+    name: (identifier)
+    body: (contract_body
+      (using_directive
+        (type_alias
+          (identifier))
+        source: (type_name (primitive_type))))))
+
+===========================
+Using directive with a list
+===========================
+
+contract Example {
+    using { fun, nuf } for *;
+}
+
+---
+
+(source_file
+  (contract_declaration
+    name: (identifier)
+    body: (contract_body
+      (using_directive
+        (type_alias
+          (identifier))
+        (type_alias
+          (identifier))
+          source: (any_source_type)))))
+
+===========================
+Using directive with a list
+===========================
+
+contract Example {
+    using { fun, nuf } for uint256;
+}
+
+---
+
+(source_file
+  (contract_declaration
+    name: (identifier)
+    body: (contract_body
+      (using_directive
+        (type_alias
+          (identifier))
+        (type_alias
+          (identifier))
+        source: (type_name (primitive_type))))))
+
+======================
+Using directive global
+======================
+
+contract Example {
+    using { fun } for * global;
+}
+
+---
+
+(source_file
+  (contract_declaration
+    name: (identifier)
+    body: (contract_body
+        (using_directive
+          (type_alias
+            (identifier))
+          source: (any_source_type)))))
